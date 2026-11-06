@@ -34,9 +34,9 @@ public class QuestionBank {
     private static final int CONNECT_TIMEOUT_MS = 4000;
     private static final int READ_TIMEOUT_MS = 6000;
 
-    private static final List<String> PRIMARY_SUBJECTS = Arrays.asList("语文", "数学", "英语");
+    private static final List<String> PRIMARY_SUBJECTS = Arrays.asList("语文", "数学", "英语", "科学");
     private static final List<String> JUNIOR_SUBJECTS =
-            Arrays.asList("语文", "数学", "英语", "物理", "历史", "道德与法治");
+            Arrays.asList("语文", "数学", "英语", "科学", "物理", "历史", "道德与法治");
 
     public static class Question {
         public String id;

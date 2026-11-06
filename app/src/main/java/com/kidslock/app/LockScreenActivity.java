@@ -178,11 +178,19 @@ public class LockScreenActivity extends AppCompatActivity {
         // 题干较长（如英语）时缩小字号，避免溢出
         tvStem.setTextSize(current.stem.length() > 16 ? 28 : 40);
 
-        for (int i = 0; i < optionButtons.length && i < currentOptions.size(); i++) {
-            optionButtons[i].setVisibility(View.VISIBLE);
-            optionButtons[i].setText(currentOptions.get(i));
-            optionButtons[i].setBackgroundResource(R.drawable.btn_option_bg);
-            optionButtons[i].setEnabled(true);
+        // 每题选项数量可能不同，隐藏上一题留下的多余按钮，避免二选一误显示旧选项。
+        for (int i = 0; i < optionButtons.length; i++) {
+            Button button = optionButtons[i];
+            if (i < currentOptions.size()) {
+                button.setVisibility(View.VISIBLE);
+                button.setText(currentOptions.get(i));
+                button.setBackgroundResource(R.drawable.btn_option_bg);
+                button.setEnabled(true);
+            } else {
+                button.setVisibility(View.GONE);
+                button.setText("");
+                button.setEnabled(false);
+            }
         }
         updateProgress();
         tvFeedback.setVisibility(View.GONE);
